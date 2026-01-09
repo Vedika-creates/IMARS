@@ -10,7 +10,8 @@ const Login = () => {
     const testConnection = async () => {
       try {
         console.log('🔍 Login: Testing Supabase connection...');
-        const { data, error } = await supabase.from('users').select('count').limit(1);
+        // Simple health check instead of querying users table
+        const { data, error } = await supabase.auth.getSession();
         console.log('🔍 Login: Connection test result:', { data, error });
       } catch (err) {
         console.error('❌ Login: Connection test failed:', err);
