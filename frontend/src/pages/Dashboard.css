@@ -1,0 +1,304 @@
+.dashboard-page {
+  padding: 30px;
+  min-height: 100vh;
+  background: var(--sparkly-white-gradient);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+}
+
+.dashboard-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d3748;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.dashboard-subtitle {
+  color: #4a5568;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 30px;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+  animation: slideUp 0.6s ease-out 0.4s both;
+  position: relative;
+  z-index: 2;
+}
+
+.dashboard-card {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--sparkly-white-bright);
+  border: 1px solid var(--sparkly-white-border);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.dashboard-card:hover .card-value {
+  transform: scale(1.05);
+  color: #667eea;
+}
+
+.dashboard-card:hover .card-title {
+  color: #764ba2;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.card-value {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #1f2937;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Additional card states */
+.dashboard-card.alert {
+  border-left: 4px solid #ef4444;
+}
+
+.dashboard-card.alert::before {
+  background: linear-gradient(90deg, #ef4444, #dc2626, #ef4444);
+}
+
+.dashboard-card.success {
+  border-left: 4px solid #10b981;
+}
+
+.dashboard-card.success::before {
+  background: linear-gradient(90deg, #10b981, #059669, #10b981);
+}
+
+.dashboard-card.warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.dashboard-card.warning::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706, #f59e0b);
+}
+
+.dashboard-card.purple {
+  border-left: 4px solid #8b5cf6;
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+}
+
+.dashboard-card.purple::before {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed, #8b5cf6);
+}
+
+.dashboard-card.purple:hover {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+}
+
+.dashboard-card.purple:hover .card-value {
+  color: #7c3aed;
+}
+
+.dashboard-card.purple:hover .card-title {
+  color: #6d28d9;
+}
+
+.dashboard-card.white {
+  border-left: 4px solid #e5e7eb;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #e5e7eb;
+}
+
+.dashboard-card.white::before {
+  background: linear-gradient(90deg, #e5e7eb, #d1d5db, #e5e7eb);
+}
+
+.dashboard-card.white:hover {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border-color: #d1d5db;
+}
+
+.dashboard-card.white:hover .card-value {
+  color: #6b7280;
+}
+
+.dashboard-card.white:hover .card-title {
+  color: #4b5563;
+}
+
+.dashboard-card.lavender {
+  border-left: 4px solid #a78bfa;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+}
+
+.dashboard-card.lavender::before {
+  background: linear-gradient(90deg, #a78bfa, #8b5cf6, #a78bfa);
+}
+
+.dashboard-card.lavender:hover {
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+}
+
+.dashboard-card.lavender:hover .card-value {
+  color: #8b5cf6;
+}
+
+.dashboard-card.lavender:hover .card-title {
+  color: #7c3aed;
+}
+
+.dashboard-card.plum {
+  border-left: 4px solid #9333ea;
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+}
+
+.dashboard-card.plum::before {
+  background: linear-gradient(90deg, #9333ea, #7e22ce, #9333ea);
+}
+
+.dashboard-card.plum:hover {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+}
+
+.dashboard-card.plum:hover .card-value {
+  color: #7e22ce;
+}
+
+.dashboard-card.plum:hover .card-title {
+  color: #6b21a8;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 20px;
+  }
+  
+  .dashboard-title {
+    font-size: 28px;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .card-value {
+    font-size: 28px;
+  }
+}
+
+/* Loading animation */
+.dashboard-card.loading {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,158 @@
+/* Sparkly White Theme Variables */
+:root {
+  --sparkly-white: #fafafa;
+  --sparkly-white-bright: #ffffff;
+  --sparkly-white-subtle: #f8f9fa;
+  --sparkly-white-border: #e9ecef;
+  --sparkly-white-shadow: rgba(250, 250, 250, 0.8);
+  --sparkly-white-gradient: linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f8f9fa 100%);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* App Layout Structure */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--sparkly-white-gradient);
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  padding: 24px;
+  background: var(--sparkly-white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--sparkly-white);
+  color: #2d3748;
+}
+
+/* Sparkly White Card Base */
+.sparkly-card {
+  background: var(--sparkly-white-bright);
+  border: 1px solid var(--sparkly-white-border);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkly-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Sparkly White Input Base */
+.sparkly-input {
+  background: var(--sparkly-white-bright);
+  border: 1px solid var(--sparkly-white-border);
+  color: #2d3748;
+  transition: all 0.3s ease;
+}
+
+.sparkly-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 
+    0 0 0 3px rgba(102, 126, 234, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: var(--sparkly-white-bright);
+}
+
+/* Sparkly White Button Base */
+.sparkly-btn {
+  background: var(--sparkly-white-gradient);
+  border: 1px solid var(--sparkly-white-border);
+  color: #2d3748;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sparkly-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.sparkly-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.sparkly-btn:hover::before {
+  left: 100%;
+}

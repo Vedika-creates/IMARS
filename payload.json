@@ -1,0 +1,12 @@
+{
+  "poData": {
+    "id": "po-123",
+    "item_id": "dummy-id",
+    "quantity": 10,
+    "status": "draft",
+    "created_at": "2025-01-01T10:00:00Z"
+  },
+  "recipientEmails": ["vedikakumbhar1007@gmail.com"],
+  "recipientRole": "manager",
+  "emailType": "po_created"
+}
